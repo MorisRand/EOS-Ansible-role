@@ -1,6 +1,6 @@
 # Description:
 
-Ansible role to deploy EOS client for Ubuntu 20.04 using JINR EOS setup and
+Ansible role to deploy [EOS](https://github.com/cern-eos/eos) client for Ubuntu 20.04 using JINR EOS setup and
 JINR authentication services.
 
 JINR configuration for Kerberos and LDAP is stored in `roles/setup_eos/files` folder. One
