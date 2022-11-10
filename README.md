@@ -22,7 +22,7 @@ authenticated by JINR Kerberos to check that deployment works.
 
 It can be run with the following command
 ```bash
-ansible-playbook -i root@vm221-73.jinr.ru, eos.yml 
+ansible-playbook -i <sudo_user>@<host>, eos.yml --ask-become-pass
 ```
 > Note `,` after the target host! It is extremely important.
 
