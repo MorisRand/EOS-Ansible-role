@@ -11,6 +11,8 @@ Configuration is provided by Valery Mitsin and can be downloaded from `lxpub` --
 The role is located under `roles/setup_eos`. Tasks performed by the role are
 listed in `roles/setup_eos/tasks`.
 
+> Configuration sensitive files are encrypted using [transcrypt](https://github.com/elasticdog/transcrypt)
+
 ## Ansible role usage
 
 The reference usage of role can be found in `eos.yml` playbook. It updates
