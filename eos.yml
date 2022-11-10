@@ -1,0 +1,22 @@
+---
+- hosts: 'all'
+  tasks:
+      - name: Update package cache and system packages
+        apt:
+            update_cache: yes
+            upgrade: full
+        tags: packages
+
+      - include_role:
+            name: setup_eos
+        tags: eos
+
+      - name: Create user for treskov
+        user:
+            name: treskov
+            groups: "sudo"
+            append: yes
+            create_home: yes
+            shell: /bin/bash
+            state: present
+        tags: users

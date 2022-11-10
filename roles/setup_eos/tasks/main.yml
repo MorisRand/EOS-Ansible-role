@@ -1,0 +1,12 @@
+---
+- name: Install prerequesties for setting up Kerberos and LDAP using JINR providers in Ubuntu 18.04
+  apt:
+      name: ['libnss-ldapd', 'libpam-ldapd', 'krb5-user', 'libpam-krb5', 'libpam-ccreds', 'auth-client-config']
+      state: present
+      update_cache: yes
+
+- import_tasks: copy_conf.yml
+
+- import_tasks: configure_sshd.yml
+
+- import_tasks: install_eos.yml

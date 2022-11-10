@@ -1,0 +1,35 @@
+- name: Add EOS APT key from CERN CI system
+  apt_key:
+      url: http://storage-ci.web.cern.ch/storage-ci/storageci.key
+      state: present
+
+- name: Add xrootd repo
+  apt_repository:
+      repo: "deb http://storage-ci.web.cern.ch/storage-ci/debian/xrootd/ bionic release"
+      state: present
+
+- name: Add citrine repo
+  apt_repository:
+      repo: "deb http://storage-ci.web.cern.ch/storage-ci/debian/eos/citrine/ bionic tag"
+      state: present
+
+- name: Install xrootd versions that doesn't cause troubles
+  command:
+      cmd: apt install xrootd-client=4.10.1 xrootd-client-libs=4.10.1 xrootd-libs=4.10.1 -y --allow-downgrades
+
+- name: Install EOS client
+  command:
+      cmd: apt install eos-client=4.5.15 eos-fusex=4.5.15 -y --allow-downgrades
+
+- name: Hold versions of xrootd so eos works without troubles
+  dpkg_selections:
+      name: '{{ item }}'
+      selection: hold
+  loop:
+      - xrootd-client
+      - xrootd-client-libs
+      - xrootd-libs
+      - xrootd-devel
+      - xrootd-client-devel
+      - eos-client
+      - eos-fusex

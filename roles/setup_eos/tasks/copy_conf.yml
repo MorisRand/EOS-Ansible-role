@@ -1,0 +1,47 @@
+- name: Copy configuration for JINR Kerberos
+  copy:
+      src: etc/krb5.conf
+      dest: /etc/krb5.conf
+      owner: root
+
+- name: Copy JINR configuration for nscd
+  copy:
+      src: etc/nscd.conf
+      dest: /etc/nscd.conf
+      owner: root
+
+- name: Copy JINR configuration for nslcd
+  copy:
+      src: etc/nslcd.conf
+      dest: /etc/nslcd.conf
+      owner: root
+
+- name: Copy JINR configuration for nsswitch
+  copy:
+      src: etc/nsswitch.conf
+      dest: /etc/nsswitch.conf
+      owner: root
+
+- name: Copy sh JINR EOS configuration for profile.d
+  copy:
+      src: etc/profile.d/eos.sh
+      dest: /etc/profile.d/eos.sh
+      owner: root
+
+- name: Copy csh JINR EOS configuration for profile.d
+  copy:
+      src: etc/profile.d/eos.csh
+      dest: /etc/profile.d/eos.csh
+      owner: root
+
+- name: Make sure /etc/eos exists
+  file:
+      path: /etc/eos
+      state: directory
+      owner: root
+
+- name: Copy JINR EOS configuration for FUSEX
+  copy:
+      src: etc/eos/fuse.conf
+      dest: /etc/eos/fuse.conf
+      owner: root

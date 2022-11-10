@@ -1,0 +1,7 @@
+roles/setup_eos/files/etc/krb5.conf filter=crypt diff=crypt merge=crypt
+roles/setup_eos/files/etc/nscd.conf filter=crypt diff=crypt merge=crypt
+roles/setup_eos/files/etc/nslcd.conf filter=crypt diff=crypt merge=crypt
+roles/setup_eos/files/etc/nsswitch.conf filter=crypt diff=crypt merge=crypt
+roles/setup_eos/files/etc/eos/fuse.conf filter=crypt diff=crypt merge=crypt
+roles/setup_eos/files/etc/profile.d/eos.sh filter=crypt diff=crypt merge=crypt
+roles/setup_eos/files/etc/profile.d/eos.csh filter=crypt diff=crypt merge=crypt

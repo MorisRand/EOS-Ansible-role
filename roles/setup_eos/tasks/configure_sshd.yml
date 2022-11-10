@@ -1,0 +1,34 @@
+- name: Allow Kerberos passwords for ssh logins 
+  lineinfile:
+      path: /etc/ssh/sshd_config
+      regex: "^KerberosAuthentication"
+      line: "KerberosAuthentication yes"
+  tags: ssh_configuration
+
+- name: Allow Kerberos or local passwords for ssh logins 
+  lineinfile:
+      path: /etc/ssh/sshd_config
+      regex: "^KerberosOrLocalPasswd"
+      line: "KerberosOrLocalPasswd yes"
+  tags: ssh_configuration
+
+- name: Kerberos ticket cleanup 
+  lineinfile:
+      path: /etc/ssh/sshd_config
+      regex: "^KerberosTicketCleanup"
+      line: "KerberosTicketCleanup yes"
+  tags: ssh_configuration
+
+- name: Allow password auth
+  lineinfile:
+      path: /etc/ssh/sshd_config
+      regex: "^PasswordAuthentication"
+      line: "PasswordAuthentication yes"
+  tags: ssh_configuration
+
+- name: Reload sshd service
+  systemd:
+      name: sshd
+      daemon_reload: yes
+      state: restarted
+  tags: ssh_configuration
